@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WEATHER APP</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
-  integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-  integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./bootstrap-4.6.2-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container-fluid">
     <div class="row">
@@ -20,18 +22,73 @@
         <h1 class="text-break p-0 m-0">WEATHER APP</h1>
 
       </div>
-      <div class="col-12 bg-secondary d-flex justify-content-center align-items-center" style="height:88vh ">
-        <form onsubmit="callApi(); false;">
-        <input type="text" class="form-input" id="userCity">
+      <div class="col-12 d-flex justify-content-center align-items-center pb-5 " style="height:88vh; background-color: #4B515D;">  
+        <form onsubmit="getWeather(); return false;" class="pb-5 w-25">
+          <!-- <input type="text" class="form-input" id="userCity" placeholder="Enter Your City Or Country Name"> -->
+          <div class="form-group">
+            <input type="text" class="form-control form-control" id="cityName" placeholder="Enter Your City Or Country Name">
+          </div>
+          <button class="btn btn-outline-primary btn-block" type="submit">Get Weather</button>
+
         </form>
-        <div>
-          
-        </div>
+      </div> 
+    </div>
+    <div class="row" style="height:88vh"; id="showWeather" >
+      <div class="col-12 p-0 m-0">
+        <section class="h-100" style="background-color: #4B515D;">
+          <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-md-8 col-lg-6 col-xl-4">
+                
+        
+                <div class="card" style="color: #4B515D; border-radius: 35px;">
+                  <div class="card-body p-4">
+        
+                    <div class="d-flex">
+                      <h6 class="flex-grow-1" id="showCityName">Warsaw</h6>
+                      <h6 id="showTime">15:07</h6>
+                    </div>
+        
+                    <div class="d-flex flex-column text-center mt-5 mb-4">
+                      <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> <span id="temp"></span>°C </h6>
+                      <span class="small" style="color: #868B94" id="weather">Stormy</span>
+                    </div>
+        
+                    <div class="d-flex align-items-center">
+                      <div class="flex-grow-1" style="font-size: 1rem;">
+                        <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> <span id="wind"></span> m/s
+                          </span></div>
+                        <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> <span id="humidity"></span>% </span>
+                        </div>
+                        <div><i class="fa-solid fa-water" style="color: #868B94;"></i> <span class="ms-1"> <span id="pressure"></span>hPa </span>
+                          
+                        <!-- <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 0.2h </span> -->
+                        </div>
+                      </div>
+                      <div>
+                        <img id="weatherIcon" 
+                          width="100px">
+                      </div>
+                    </div>
+        
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+        
+          </div>
+        </section>
       </div>
     </div>
   </div>
-  
-  
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js" integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -42,7 +99,10 @@
     integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
     crossorigin="anonymous"></script>
   <script src="./bootstrap-4.6.2-dist/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js" integrity="sha512-P/tfgnVm6RM6aQU1tpWKjDPF6otdDVURF8dlET8Icu5IHJ4261mE6tXhh9lumrRhIOCzzi8QpaPQ2urpY6sK8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.2.1/math.min.js"
+    integrity="sha512-P/tfgnVm6RM6aQU1tpWKjDPF6otdDVURF8dlET8Icu5IHJ4261mE6tXhh9lumrRhIOCzzi8QpaPQ2urpY6sK8A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./app.js"></script>
 </body>
+
 </html>
