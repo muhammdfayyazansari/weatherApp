@@ -22,6 +22,8 @@ let getWeather = () => {
       document.querySelector('#pressure').innerHTML = `${response.data.main.pressure}`
       // document.querySelector('#weatherIcon').setAttribute('src',`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png$`)
       document.querySelector('#weatherIcon').src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+      document.querySelector('#formDiv').setAttribute('class','col-12 d-none justify-content-center align-items-center pb-5 ')
+      document.querySelector('#showWeather').setAttribute('class','row')
 
 
       

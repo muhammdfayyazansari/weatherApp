@@ -16,13 +16,14 @@
 </head>
 
 <body>
+  <!-- 32 2 266 56 76 ahmed raza chandio -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-12 bg-info d-flex justify-content-center align-items-end m-0" style="height:12vh">
         <h1 class="text-break p-0 m-0">WEATHER APP</h1>
 
       </div>
-      <div class="col-12 d-flex justify-content-center align-items-center pb-5 " style="height:88vh; background-color: #4B515D;">  
+      <div class="col-12 d-flex justify-content-center align-items-center pb-5 " style="height:88vh; background-color: #4B515D;" id="formDiv">  
         <form onsubmit="getWeather(); return false;" class="pb-5 w-25">
           <!-- <input type="text" class="form-input" id="userCity" placeholder="Enter Your City Or Country Name"> -->
           <div class="form-group">
@@ -33,7 +34,7 @@
         </form>
       </div> 
     </div>
-    <div class="row" style="height:88vh"; id="showWeather" >
+    <div class="row d-none" style="height:88vh"; id="showWeather">
       <div class="col-12 p-0 m-0">
         <section class="h-100" style="background-color: #4B515D;">
           <div class="container py-5 h-100">
@@ -41,7 +42,7 @@
               <div class="col-md-8 col-lg-6 col-xl-4">
                 
         
-                <div class="card" style="color: #4B515D; border-radius: 35px;">
+                <div class="card weatherImage" style="color: #ffffff; border-radius: 35px;">
                   <div class="card-body p-4">
         
                     <div class="d-flex">
@@ -50,19 +51,19 @@
                     </div>
         
                     <div class="d-flex flex-column text-center mt-5 mb-4">
-                      <h6 class="display-4 mb-0 font-weight-bold" style="color: #1C2331;"> <span id="temp"></span>°C </h6>
-                      <span class="small" style="color: #868B94" id="weather">Stormy</span>
+                      <h6 class="display-4 mb-0 font-weight-bold" style="color: #ffffff;"> <span id="temp"></span>°C </h6>
+                      <span class="small" style="color: #ffffff" id="weather">Stormy</span>
                     </div>
         
                     <div class="d-flex align-items-center">
                       <div class="flex-grow-1" style="font-size: 1rem;">
-                        <div><i class="fas fa-wind fa-fw" style="color: #868B94;"></i> <span class="ms-1"> <span id="wind"></span> m/s
+                        <div><i class="fas fa-wind fa-fw" style="color: #ffffff;"></i> <span class="ms-1"> <span id="wind"></span> m/s
                           </span></div>
-                        <div><i class="fas fa-tint fa-fw" style="color: #868B94;"></i> <span class="ms-1"> <span id="humidity"></span>% </span>
+                        <div><i class="fas fa-tint fa-fw" style="color: #ffffff;"></i> <span class="ms-1"> <span id="humidity"></span>% </span>
                         </div>
-                        <div><i class="fa-solid fa-water" style="color: #868B94;"></i> <span class="ms-1"> <span id="pressure"></span>hPa </span>
+                        <div><i class="fa-solid fa-water" style="color: #ffffff;"></i> <span class="ms-1"> <span id="pressure"></span>hPa </span>
                           
-                        <!-- <div><i class="fas fa-sun fa-fw" style="color: #868B94;"></i> <span class="ms-1"> 0.2h </span> -->
+                        <!-- <div><i class="fas fa-sun fa-fw" style="color: #ffffff;"></i> <span class="ms-1"> 0.2h </span> -->
                         </div>
                       </div>
                       <div>

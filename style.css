@@ -1,0 +1,4 @@
+.weatherImage{
+    background-image: url("./images/weather.gif") !important;
+    background-size: 100% 100%;
+}
