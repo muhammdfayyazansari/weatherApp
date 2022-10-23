@@ -1,5 +1,7 @@
 let getWeather = () => {
   console.log('fayyaz')
+  let getBackground = document.querySelector('#backgroundImage');
+  let getCardImage = document.querySelector('#changeToTransparent')
   let cityName = document.querySelector("#cityName").value;
   let getDate = moment().format("dddd, MMMM Do YYYY, hh:mm:ss a");
   console.log(getDate)
@@ -25,6 +27,29 @@ let getWeather = () => {
       document.querySelector('#formDiv').setAttribute('class','col-12 d-none justify-content-center align-items-center pb-5 ')
       document.querySelector('#showWeather').setAttribute('class','row')
 
+      // BACKGROUND IMAGES CHANGE 
+      let getWeatherType = response.data.weather[0].main;
+      if(getWeatherType == 'Sunny'){
+        getBackground.setAttribute("class",'backgroundImageSunny');
+      }
+      else if(getWeatherType == 'Clouds'){
+        getBackground.setAttribute("class",'backgroundImageCloudy');
+        console.log('fayayz')
+      }
+      else if(getWeatherType == 'Windy'){
+        getBackground.setAttribute("class",'backgroundImageWindy');
+      }
+      else if(getWeatherType == 'Stormy'){
+        getBackground.setAttribute("class",'backgroundImageStormy ');
+      }
+      else if(getWeatherType == 'Rainy'){
+        getBackground.setAttribute("class",'backgroundImageRainy');
+      }
+      else{
+        getBackground.setAttribute("class",'backgroundImage');
+        console.log(getWeatherType)
+
+      }
 
       
       

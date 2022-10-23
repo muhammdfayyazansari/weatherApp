@@ -2,3 +2,28 @@
     background-image: url("./images/weather.gif") !important;
     background-size: 100% 100%;
 }
+
+.backgroundImage{
+    background-image: url("./images/sky-blue-cloud-clear.jpg");
+    background-size: 100% 100%;
+}
+.backgroundImageCloudy{
+    background-image: url("./images/cloudy.jfif");
+    background-size: 100% 100%;
+}
+.backgroundImageWindy{
+    background-image: url("./images/windy.webp");
+    background-size: 100% 100%;
+}
+.backgroundImageSunny{
+    background-image: url("./images/Sunny_day.jpg");
+    background-size: 100% 100%;
+}
+.backgroundImageRainy{
+    background-image: url("./images/rainy.jfif");
+    background-size: 100% 100%;
+}
+.backgroundImageStormy{
+    background-image: url("./images/stormy.jpg");
+    background-size: 100% 100%;
+}

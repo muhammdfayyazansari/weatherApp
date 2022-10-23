@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body id="backgroundImage">
+  <!-- <img src="./images/sky-blue-cloud-clear.jpg" alt="" srcset=""> -->
   <!-- 32 2 266 56 76 ahmed raza chandio -->
  <!-- <script>
   FIBONACCI SERIES
@@ -41,7 +42,7 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 bg-info d-flex justify-content-center align-items-end m-0" style="height:12vh">
+      <div class="col-12 d-flex justify-content-center align-items-end m-0" style="height:12vh">
         <h1 class="text-break p-0 m-0">WEATHER APP</h1>
 
       </div>
@@ -58,13 +59,13 @@
     </div>
     <div class="row d-none" style="height:88vh"; id="showWeather">
       <div class="col-12 p-0 m-0">
-        <section class="h-100" style="background-color: #4B515D;">
+        <section class="h-100" style="background-color: transparent;">
           <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-md-8 col-lg-6 col-xl-4">
                 
         
-                <div class="card weatherImage" style="color: #ffffff; border-radius: 35px;">
+                <div class="card weatherImage" id="changeToTransparent" style="color: #ffffff; border-radius: 35px;">
                   <div class="card-body p-4">
         
                     <div class="d-flex">
