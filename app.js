@@ -29,20 +29,20 @@ let getWeather = () => {
 
       // BACKGROUND IMAGES CHANGE 
       let getWeatherType = response.data.weather[0].main;
-      if(getWeatherType == 'Sunny'){
+      if(getWeatherType == 'Sun'){
         getBackground.setAttribute("class",'backgroundImageSunny');
       }
       else if(getWeatherType == 'Clouds'){
         getBackground.setAttribute("class",'backgroundImageCloudy');
         console.log('fayayz')
       }
-      else if(getWeatherType == 'Windy'){
+      else if(getWeatherType == 'Wind'){
         getBackground.setAttribute("class",'backgroundImageWindy');
       }
-      else if(getWeatherType == 'Stormy'){
+      else if(getWeatherType == 'Storms'){
         getBackground.setAttribute("class",'backgroundImageStormy ');
       }
-      else if(getWeatherType == 'Rainy'){
+      else if(getWeatherType == 'Rain'){
         getBackground.setAttribute("class",'backgroundImageRainy');
       }
       else{
